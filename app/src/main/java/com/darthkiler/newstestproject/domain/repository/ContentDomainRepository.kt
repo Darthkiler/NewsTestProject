@@ -21,7 +21,7 @@ interface ContentDomainRepository {
 }
 
 internal class ContentDomainRepositoryImpl @Inject constructor(
-    private val contentNetworkRepository: ContentNetworkRepository,
+    private val contentNetworkRepository: ContentNetworkRepository
 ) : ContentDomainRepository {
     override fun getContentList(): Flow<PagingData<ContentModel>> {
         return contentNetworkRepository.getContent().map {
@@ -49,7 +49,6 @@ internal class ContentDomainRepositoryImpl @Inject constructor(
             }
         }
     }
-
 }
 
 @Module

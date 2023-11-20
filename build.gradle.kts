@@ -6,4 +6,6 @@ plugins {
     id("com.google.dagger.hilt.android") version "2.48.1" apply false
 
     kotlin("plugin.serialization") version "1.9.20"
+
+    id("org.jlleitschuh.gradle.ktlint") version "11.6.1"
 }

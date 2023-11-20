@@ -18,7 +18,7 @@ import javax.inject.Inject
 class DetailsScreenViewModel @Inject constructor(
     private val getContentByIdUseCase: GetContentByIdUseCase,
     savedStateHandle: SavedStateHandle
-): ViewModel() {
+) : ViewModel() {
 
     private lateinit var contentId: String
     private val _uiState = MutableStateFlow(
@@ -66,12 +66,20 @@ class DetailsScreenViewModel @Inject constructor(
             DetailsListScreenEvent.OnRetryClick -> {
                 onRetryClick()
             }
+
+            DetailsListScreenEvent.OnLinkClick -> {
+                // TODO open link
+            }
         }
     }
 
     private fun handleError(e: Exception) {
-        // TODO handle error
-        println("error $e")
+        // TODO обработать разные ошибки
+        _uiState.update {
+            it.copy(
+                isError = true
+            )
+        }
     }
 
     private fun onRetryClick() {
@@ -84,6 +92,7 @@ class DetailsScreenViewModel @Inject constructor(
     }
 
     sealed interface DetailsListScreenEvent {
-        data object OnRetryClick: DetailsListScreenEvent
+        data object OnRetryClick : DetailsListScreenEvent
+        data object OnLinkClick : DetailsListScreenEvent
     }
 }

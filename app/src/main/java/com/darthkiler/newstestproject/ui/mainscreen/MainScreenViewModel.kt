@@ -10,7 +10,7 @@ import javax.inject.Inject
 @HiltViewModel
 class MainScreenViewModel @Inject constructor(
     navigationManager: NavigationManager
-): ViewModel() {
+) : ViewModel() {
 
     private val _uiState = MutableStateFlow(
         MainScreenUIState(

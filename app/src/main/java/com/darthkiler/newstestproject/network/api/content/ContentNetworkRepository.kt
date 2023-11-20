@@ -24,12 +24,12 @@ interface ContentNetworkRepository {
 
 internal class ContentNetworkRepositoryImpl @Inject constructor(
     private val contentPagingSource: ContentPagingSource,
-    private val contentRequestHandler: ContentRequestHandler,
+    private val contentRequestHandler: ContentRequestHandler
 ) : ContentNetworkRepository {
     override fun getContent(): Flow<PagingData<ContentResponseBody.Response.Result>> {
         return Pager(
             config = PagingConfig(
-                pageSize = PAGES_COUNT, // TODO сделать через запрос
+                pageSize = PAGES_COUNT // TODO сделать через запрос
             ),
             pagingSourceFactory = {
                 contentPagingSource

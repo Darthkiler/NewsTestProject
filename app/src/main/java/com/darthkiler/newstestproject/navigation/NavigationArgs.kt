@@ -12,7 +12,7 @@ sealed class NavigationArgs {
     @Serializable
     data class DetailsScreenArgs(
         private val id: String
-    ): NavigationArgs() {
+    ) : NavigationArgs() {
         private constructor() : this ("")
 
         fun getId(): String = String(Base64.getDecoder().decode(id))

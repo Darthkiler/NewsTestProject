@@ -57,13 +57,13 @@ data class ContentResponseBody(
             @SerialName("pillarId")
             val pillarId: String?,
             @SerialName("pillarName")
-            val pillarName: String?,
+            val pillarName: String?
         ) {
 
             @Serializable
             data class Field(
                 @SerialName("thumbnail")
-                val thumbnail: String?,
+                val thumbnail: String?
             )
         }
     }

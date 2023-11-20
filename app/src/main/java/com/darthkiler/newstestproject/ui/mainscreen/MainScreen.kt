@@ -54,7 +54,7 @@ fun MainScreen(
 @Composable
 private fun MainScreenNavigation(
     modifier: Modifier = Modifier,
-    navHostController: NavHostController,
+    navHostController: NavHostController
 ) {
     NavHost(
         modifier = modifier,

@@ -18,8 +18,6 @@ import javax.inject.Singleton
 private const val CONNECT_TIMEOUT = 30L
 private const val READ_TIMEOUT = 40L
 
-
-
 @Module
 @InstallIn(SingletonComponent::class)
 object RetrofitModule {
@@ -37,7 +35,7 @@ object RetrofitModule {
     @Singleton
     @Provides
     internal fun provideRetrofit(
-        interceptor: HttpLoggingInterceptor?,
+        interceptor: HttpLoggingInterceptor?
     ): Retrofit.Builder {
         return Retrofit.Builder()
             .addConverterFactory(
@@ -45,13 +43,15 @@ object RetrofitModule {
                     "application/json".toMediaType()
                 )
             )
-            .client(OkHttpClient.Builder()
-                .connectTimeout(CONNECT_TIMEOUT, TimeUnit.SECONDS)
-                .readTimeout(READ_TIMEOUT, TimeUnit.SECONDS).apply {
-                    interceptor?.let {
-                        addInterceptor(it)
-                    }
-                }.build()).apply {
+            .client(
+                OkHttpClient.Builder()
+                    .connectTimeout(CONNECT_TIMEOUT, TimeUnit.SECONDS)
+                    .readTimeout(READ_TIMEOUT, TimeUnit.SECONDS).apply {
+                        interceptor?.let {
+                            addInterceptor(it)
+                        }
+                    }.build()
+            ).apply {
                 baseUrl(CONTENT_BASE_URL)
             }
     }

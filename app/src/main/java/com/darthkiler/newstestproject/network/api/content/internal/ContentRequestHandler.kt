@@ -5,7 +5,6 @@ import com.darthkiler.newstestproject.network.api.content.model.ContentDetailsRe
 import com.darthkiler.newstestproject.network.utils.Constants
 import javax.inject.Inject
 
-
 class ContentRequestHandler @Inject constructor(
     private val contentApi: ContentApi
 ) {
