@@ -21,8 +21,8 @@ fun DetailsScreen(
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center
     ) {
-        uiState.id?.let {
-            Text(text = it.toString())
+        uiState.contentModel?.title?.let {
+            Text(text = it)
         }
     }
 }

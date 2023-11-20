@@ -68,7 +68,9 @@ dependencies {
     implementation("androidx.compose.material3:material3")
 
     // Retrofit
-    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation ("com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.2")
+    implementation("com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:1.0.0")
+
 
     // Coroutines
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
@@ -84,8 +86,8 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.1")
 
     // Paging
-    implementation ("androidx.paging:paging-runtime-ktx:3.3.0-alpha02")
-    implementation ("androidx.paging:paging-compose:3.3.0-alpha02")
+    implementation ("androidx.paging:paging-runtime-ktx:3.2.1")
+    implementation ("androidx.paging:paging-compose:3.2.1")
 }
 
 kapt {

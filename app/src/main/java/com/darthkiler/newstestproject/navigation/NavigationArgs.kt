@@ -4,15 +4,26 @@ import androidx.lifecycle.SavedStateHandle
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
+import java.util.Base64
 
 @Serializable
 sealed class NavigationArgs {
 
     @Serializable
     data class DetailsScreenArgs(
-        val id: Int
+        private val id: String
     ): NavigationArgs() {
-        private constructor() : this (-1)
+        private constructor() : this ("")
+
+        fun getId(): String = String(Base64.getDecoder().decode(id))
+
+        companion object {
+            fun getDetailsScreenArgs(id: String): DetailsScreenArgs {
+                return DetailsScreenArgs(
+                    id = Base64.getEncoder().encodeToString(id.toByteArray())
+                )
+            }
+        }
     }
 
     var argName: String = when (this) {
